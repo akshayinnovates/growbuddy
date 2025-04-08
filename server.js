@@ -14,10 +14,16 @@ if (!API_KEY) {
     process.exit(1);
 }
 
-// ✅ Home Route
+const path = require("path");
+
+// 🔥 Serve static files from "public" folder
+app.use(express.static(path.join(__dirname, "public")));
+
+// ✅ Home route serves your index.html
 app.get("/", (req, res) => {
-    res.send("Welcome to GrowBuddy API 🌱");
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
 
 // ✅ Route to get a list of plants
 app.get("/plants", async (req, res) => {
