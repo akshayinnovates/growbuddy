@@ -1,0 +1,15 @@
+# Exported from Render on 2025-10-29T06:36:05Z
+version: "1"
+services:
+- type: web
+  name: growbuddy
+  runtime: node
+  repo: https://github.com/akshayinnovates/growbuddy
+  plan: free
+  envVars:
+  - key: PERENUAL_API_KEY
+    sync: false
+  region: oregon
+  buildCommand: npm install
+  startCommand: node server.js
+  autoDeployTrigger: commit
